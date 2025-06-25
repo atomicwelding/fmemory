@@ -19,6 +19,7 @@ program fmemory
 
   write(fdseq) mem
 
+  
   open(fdstr, file="memstr.dat", status="replace", form="unformatted", access="stream",  iostat=stat, iomsg=iomsg)
   if(stat /=0) then
      print *, "could not open file memstr.dat"
@@ -26,12 +27,13 @@ program fmemory
   end if
 
   write(fdstr) mem
+
+  
   open(fdframe, file="memframe.dat", status="replace", form="unformatted", access="stream",  iostat=stat, iomsg=iomsg)
   if(stat /=0) then
      print *, "could not open file memframe.dat"
      stop 1
   end if
-
 
   do frame=1,3
      write(fdframe) mem
